@@ -1,0 +1,49 @@
+$light-theme: (
+  bg: #ffffff,
+  text: #181818,
+  surface: #f3f4f6,
+  primary: #2563eb,
+  border: #e5e7eb,
+);
+
+$dark-theme: (
+  bg: #121212,
+  text: #f9fafb,
+  surface: #242424,
+  primary: #60a5fa,
+  border: #404040,
+);
+
+// Farben
+
+$color-background: #333;
+$color-surface: #444;
+
+$color-primary: #04da4b;
+$color-attention: #f02f2f;
+
+$color-text: #fff;
+
+// Schriftarten und -größen
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik+Scribble&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik+Scribble&display=swap");
+
+$font-size-small: 1rem;
+$font-size-base: 1.3rem;
+$font-size-large: 1.25rem;
+
+$font-size-h1: 3rem;
+$font-size-h2: 1.5rem;
+
+// Schriftstärken
+
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+@mixin tablet-and-up() {
+  @media only screen and (min-width: 600px) {
+    @content;
+  }
+}

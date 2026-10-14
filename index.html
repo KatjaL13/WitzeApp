@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="styles/main.scss" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WitzeApp</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1 class="header">Witze App</h1>
+      <div class="joke">
+        <p class="joke__text">
+          <em>Klicke auf den Button für einen Witz.</em>
+        </p>
+        <div class="joke__action">
+          <button class="joke__new">Neuen Witz laden</button>
+          <button class="joke__save joke__save--unvisible">
+            <span>Witz speichern</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="joke__saveIcon">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="savedJokes">
+        <h2 class="header header__savedJokes">Gespeicherte Witze</h2>
+        <div class="savedJokes__list">
+          <em>Noch keine Witze gespeichert.</em>
+          <div class="savedJoke">
+            <div class="savedJoke__text">Lorem ipsum dolor sit amet.</div>
+            <button class="savedJoke__delete">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="savedJoke__deleteIcon">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m3 3 1.664 1.664M21 21l-1.5-1.5m-5.485-1.242L12 17.25 4.5 21V8.742m.164-4.078a2.15 2.15 0 0 1 1.743-1.342 48.507 48.507 0 0 1 11.186 0c1.1.128 1.907 1.077 1.907 2.185V19.5M4.664 4.664 19.5 19.5" />
+              </svg>
+            </button>
+          </div>
+          <div class="savedJoke">
+            <div class="savedJoke__text">Lorem ipsum dolor sit amet.</div>
+            <button class="savedJoke__delete">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="savedJoke__deleteIcon">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m3 3 1.664 1.664M21 21l-1.5-1.5m-5.485-1.242L12 17.25 4.5 21V8.742m.164-4.078a2.15 2.15 0 0 1 1.743-1.342 48.507 48.507 0 0 1 11.186 0c1.1.128 1.907 1.077 1.907 2.185V19.5M4.664 4.664 19.5 19.5" />
+              </svg>
+            </button>
+          </div>
+          <div class="savedJoke">
+            <div class="savedJoke__text">Lorem ipsum dolor sit amet.</div>
+            <button class="savedJoke__delete">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="savedJoke__deleteIcon">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m3 3 1.664 1.664M21 21l-1.5-1.5m-5.485-1.242L12 17.25 4.5 21V8.742m.164-4.078a2.15 2.15 0 0 1 1.743-1.342 48.507 48.507 0 0 1 11.186 0c1.1.128 1.907 1.077 1.907 2.185V19.5M4.664 4.664 19.5 19.5" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
