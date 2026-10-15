@@ -3,12 +3,17 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-// @include tablet-and-up() {...}
+
 body {
   background-color: $color-background;
-  font-family: "Inter", sans-serif;
   color: $color-text;
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 #app {
@@ -21,9 +26,10 @@ body {
 }
 
 .header {
-  font-family: "Rubik Scribble";
+  font-family: "Rubik Scribble", cursive;
   color: $color-primary;
   font-size: $font-size-h1;
+  text-align: center;
 
   &__savedJokes {
     color: $color-text;
@@ -31,14 +37,47 @@ body {
   }
 }
 
+.theme-toggle {
+  align-self: flex-start;
+  margin-top: 1rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-surface;
+  color: $color-text;
+  border: 1px solid $color-border;
+  border-radius: 6px;
+  font: inherit;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+
+  &:hover {
+    border-color: $color-primary;
+  }
+
+  &:focus-visible {
+    outline: 3px solid $color-primary;
+    outline-offset: 3px;
+  }
+
+  &__icon {
+    font-size: 1.35rem;
+    line-height: 1;
+  }
+}
+
 .joke {
   background-color: $color-surface;
+  width: 100%;
   margin-top: 2rem;
   padding: 1.5rem;
-
-  @include tablet-and-up() {
-    width: 100%;
-  }
+  transition: background-color 0.2s ease;
 
   &__text {
     color: $color-text;
@@ -60,17 +99,25 @@ body {
   &__new,
   &__save {
     font-size: $font-size-small;
-    color: #000;
     background-color: $color-primary;
+    color: $color-on-primary;
     border: 1px solid $color-primary;
     border-radius: 3px;
     padding: 1rem;
     cursor: pointer;
-    transition: 0.2s all ease-in-out;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease,
+      filter 0.2s ease;
 
     &:hover {
-      background-color: darken($color-primary, 5);
-      border-color: darken($color-primary, 5);
+      filter: brightness(0.9);
+    }
+
+    &:focus-visible {
+      outline: 3px solid $color-primary;
+      outline-offset: 3px;
     }
   }
 
@@ -82,9 +129,13 @@ body {
     justify-content: center;
     gap: 5px;
 
+    &--unvisible {
+      display: none;
+    }
+
     &:hover {
       background-color: $color-primary;
-      color: #000;
+      color: $color-on-primary;
     }
   }
 
@@ -95,6 +146,7 @@ body {
 }
 
 .savedJokes {
+  width: 100%;
   margin-top: 3rem;
 
   @include tablet-and-up() {
@@ -106,39 +158,58 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
+    > em {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
   }
 }
 
 .savedJoke {
   background-color: $color-surface;
+  color: $color-text;
   padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  transition: background-color 0.2s ease;
 
   @include tablet-and-up() {
     padding: 1.5rem;
+  }
+
+  &__text {
+    overflow-wrap: anywhere;
   }
 
   &__delete {
     border: none;
     border-radius: 3px;
     background-color: $color-attention;
-    color: $color-text;
-    padding: 3px;
+    color: $color-on-attention;
+    padding: 0.4rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     cursor: pointer;
-    transition: 0.2s all ease-in-out;
+    transition: filter 0.2s ease;
 
     &:hover {
-      background-color: darken($color-attention, 10);
+      filter: brightness(0.85);
+    }
+
+    &:focus-visible {
+      outline: 3px solid $color-primary;
+      outline-offset: 3px;
     }
   }
 
   &__deleteIcon {
     width: 1rem;
+    height: 1rem;
   }
 }

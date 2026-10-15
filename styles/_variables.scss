@@ -1,42 +1,68 @@
+// ==========================================
+// 1. FARBPALETTEN FÜR BEIDE THEMES
+// ==========================================
+// Eine SCSS-Map sammelt mehrere zusammengehörige Werte.
+// Beide Maps verwenden dieselben Namen, aber andere Farben.
+
 $light-theme: (
   bg: #ffffff,
   text: #181818,
   surface: #f3f4f6,
   primary: #2563eb,
   border: #e5e7eb,
+  attention: #dc2626,
+  on-primary: #ffffff,
+  on-attention: #ffffff,
 );
 
 $dark-theme: (
-  bg: #121212,
-  text: #f9fafb,
-  surface: #242424,
-  primary: #60a5fa,
-  border: #404040,
+  bg: #333333,
+  text: #ffffff,
+  surface: #444444,
+  primary: #04da4b,
+  border: transparent,
+  attention: #f02f2f,
+  on-primary: #000000,
+  on-attention: #ffffff,
 );
 
-// Farben
+// ==========================================
+// 2. SCSS-MAPS IN CSS-VARIABLEN UMWANDELN
+// ==========================================
+// SCSS-Variablen werden beim Bauen der CSS-Datei festgelegt.
+// CSS-Variablen (--color-...) können dagegen zur Laufzeit wechseln.
+// @each durchläuft alle Farben der jeweiligen Map.
 
-$color-background: #333;
-$color-surface: #444;
+:root {
+  @each $name, $color in $light-theme {
+    --color-#{$name}: #{$color};
+  }
+  color-scheme: light;
+}
 
-$color-primary: #04da4b;
-$color-attention: #f02f2f;
+:root[data-theme="dark"] {
+  @each $name, $color in $dark-theme {
+    --color-#{$name}: #{$color};
+  }
+  color-scheme: dark;
+}
 
-$color-text: #fff;
+$color-background: var(--color-bg);
+$color-text: var(--color-text);
+$color-surface: var(--color-surface);
+$color-primary: var(--color-primary);
+$color-border: var(--color-border);
+$color-attention: var(--color-attention);
+$color-on-primary: var(--color-on-primary);
+$color-on-attention: var(--color-on-attention);
 
-// Schriftarten und -größen
-
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik+Scribble&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik+Scribble&display=swap");
 
 $font-size-small: 1rem;
 $font-size-base: 1.3rem;
 $font-size-large: 1.25rem;
-
 $font-size-h1: 3rem;
 $font-size-h2: 1.5rem;
-
-// Schriftstärken
 
 $font-weight-normal: 400;
 $font-weight-medium: 500;
